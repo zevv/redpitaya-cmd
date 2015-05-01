@@ -6,6 +6,6 @@ make && \
 		-stdin \
 		-format le32f \
 		-record \
-		-samplerate 100000 \
+		-samplerate 2500000 \
 		-quadrature \
 		-channels 2

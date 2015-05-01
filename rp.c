@@ -39,7 +39,10 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	int32_t cfg = freq * 1e3;
+	int32_t cfg[2];
+	cfg[0] = freq * 1e3;
+	cfg[1] = 0x80000002;
+
 	r = send(fd, &cfg, sizeof(cfg), 0);
 	if(r <= 0) {
 		fprintf(stderr, "send(): %s\n", strerror(errno));
