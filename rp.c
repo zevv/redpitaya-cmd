@@ -1,3 +1,7 @@
+/*
+ * http://pavel-demin.github.io/red-pitaya-notes/sdr-receiver/
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -51,7 +55,7 @@ int main(int argc, char **argv)
 
 	for(;;) {
 		int32_t data[1024];
-		
+
 		r = recv(fd, data, sizeof(data), 0);
 		if(r <= 0) {
 			fprintf(stderr, "recv(): %s\n", strerror(errno));
@@ -64,7 +68,7 @@ int main(int argc, char **argv)
 		int32_t *p = data;
 		float f;
 		for(i=0; i<samples; i++) {
-			f = *p++ / 10000;
+			f = *p++ / 10000.0;
 			fwrite(&f, 1, sizeof(f), stdout);
 		}
 	}
